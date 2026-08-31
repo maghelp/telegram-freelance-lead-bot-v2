@@ -95,3 +95,10 @@ def load_sources(path: Path = DEFAULT_SOURCES_PATH) -> list[Source]:
 
 def enabled_sources(path: Path = DEFAULT_SOURCES_PATH) -> list[Source]:
     return [source for source in load_sources(path) if source.enabled]
+
+
+def handles_with_tag(tag: str, path: Path = DEFAULT_SOURCES_PATH) -> frozenset[str]:
+    """Lowercase handles carrying the given tag, for per-source filter routing."""
+    return frozenset(
+        source.handle.lower() for source in load_sources(path) if tag in source.tags
+    )

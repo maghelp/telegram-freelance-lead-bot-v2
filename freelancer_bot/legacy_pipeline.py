@@ -25,18 +25,29 @@ class LegacyLeadProcessor:
         lead_repository: LegacyLeadRepository,
         subscription_repository: LegacySubscriptionRepository,
         delivery: LegacyLeadDelivery,
+        niche_filter_config: FilterConfig | None = None,
+        niche_handles: frozenset[str] = frozenset(),
     ):
         self.filter_config = filter_config
         self.lead_repository = lead_repository
         self.subscription_repository = subscription_repository
         self.delivery = delivery
+        self.niche_filter_config = niche_filter_config
+        self.niche_handles = niche_handles
 
     async def handle(self, message: CollectedMessage) -> None:
         text = message.text
         if not text.strip():
             return
 
-        match = match_text(text, self.filter_config)
+        active_filter = self.filter_config
+        if (
+            self.niche_filter_config is not None
+            and message.source.handle.lower() in self.niche_handles
+        ):
+            active_filter = self.niche_filter_config
+
+        match = match_text(text, active_filter)
         if not match.accepted:
             return
 

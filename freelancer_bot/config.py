@@ -92,6 +92,11 @@ class RuntimeConfig(BaseSettings):
         sensitivity=Sensitivity.SENSITIVE,
         validation_alias=AliasChoices("TELEGRAM_TARGET_CHAT_ID", "TARGET_USER_ID"),
     )
+    admin_telegram_id: int | None = classified_field(
+        None,
+        sensitivity=Sensitivity.SENSITIVE,
+        validation_alias=AliasChoices("ADMIN_TELEGRAM_ID", "OWNER_TELEGRAM_ID"),
+    )
     database_path: Path = classified_field(
         Path("data/leads.sqlite3"),
         sensitivity=Sensitivity.INTERNAL,
@@ -143,6 +148,11 @@ class RuntimeConfig(BaseSettings):
         Path("config/filters.json"),
         sensitivity=Sensitivity.INTERNAL,
         validation_alias="FILTERS_PATH",
+    )
+    filters_eggent_path: Path = classified_field(
+        Path("config/filters_eggent.json"),
+        sensitivity=Sensitivity.INTERNAL,
+        validation_alias="FILTERS_EGGENT_PATH",
     )
     user_session_path: Path = classified_field(
         Path("sessions/freelancer_user"),

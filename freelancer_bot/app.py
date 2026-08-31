@@ -67,7 +67,7 @@ from .profile_onboarding_service import ProfileOnboardingService
 from .replies import OpenAIReplyDraftGenerator, ReplyDraft, ReplyDraftError
 from .source_ai_config import source_ai_provider_available
 from .source_discovery_runtime import AutonomousSourceDiscoveryRuntime
-from .sources import Source, load_sources
+from .sources import Source, handles_with_tag, load_sources
 from .storage import Storage, StoredLead
 from .telegram_chat_discovery import (
     TelegramChatDiscoveryRuntime,
@@ -183,6 +183,8 @@ class LeadBot:
         self.database = database or Database(config.postgresql_url())
         self.storage = Storage(config.database_path) if background_enabled else None
         self.filter_config = load_filter_config(config.filters_path)
+        self.eggent_niche_filter_config = load_filter_config(config.filters_eggent_path)
+        self.eggent_niche_handles = handles_with_tag("eggent-niche", config.sources_path)
         self.sources: list[TelegramCollectorSource] = []
         if config.api_id is None:
             raise ConfigurationError("TELEGRAM_API_ID/API_ID is required for the Telegram runtime")
@@ -269,6 +271,8 @@ class LeadBot:
                 self.storage,
                 self.storage,
                 self.legacy_delivery,
+                niche_filter_config=self.eggent_niche_filter_config,
+                niche_handles=self.eggent_niche_handles,
             )
             if self.storage is not None
             else None
@@ -484,6 +488,28 @@ class LeadBot:
         async def sources(event: events.NewMessage.Event) -> None:
             lines = [f"{index}. {source.handle} — {source.title}" for index, source in enumerate(self.sources, 1)]
             await event.respond("Активные источники:\n" + "\n".join(lines))
+
+        @self.bot_client.on(events.NewMessage(pattern=r"^/reload_sources"))
+        async def reload_sources(event: events.NewMessage.Event) -> None:
+            admin_id = getattr(self.config, "admin_telegram_id", None)
+            if admin_id is None or _telegram_user_id(event) != str(admin_id):
+                await event.respond("Команда недоступна.")
+                return
+            if not getattr(self, "_background_enabled", True) or self.user_client is None:
+                await event.respond(
+                    "Коллектор не запущен в этом режиме (bot-only UI) — перезагружать нечего."
+                )
+                return
+            before = len(self.sources)
+            try:
+                newly_active = await self._reload_approved_sources()
+            except Exception as exc:  # noqa: BLE001 - report to admin, don't crash the handler
+                await event.respond(f"Не удалось перезагрузить источники: {exc}")
+                return
+            await event.respond(
+                "Источники перезагружены из PostgreSQL.\n"
+                f"Было: {before}, стало: {len(self.sources)}, новых подключено: {len(newly_active)}."
+            )
 
         @self.bot_client.on(events.NewMessage(pattern=r"^/keywords"))
         async def keywords(event: events.NewMessage.Event) -> None:
@@ -1676,11 +1702,18 @@ def cli() -> None:
         config = RuntimeConfig.from_env(mode=RuntimeMode.CHECK_CONFIG)
         sources = load_sources(config.sources_path)
         filters = load_filter_config(config.filters_path)
+        eggent_filters = load_filter_config(config.filters_eggent_path)
+        niche_handles = handles_with_tag("eggent-niche", config.sources_path)
         enabled_count = sum(source.enabled for source in sources)
         print(f"OK: {config.sources_path} ({enabled_count}/{len(sources)} источников включено)")
         print(
             f"OK: {config.filters_path} ({len(filters.keywords)} ключевых слов, "
             f"{len(filters.stop_words)} стоп-слов, min_score={filters.min_score})"
+        )
+        print(
+            f"OK: {config.filters_eggent_path} ({len(eggent_filters.keywords)} ключевых слов, "
+            f"{len(eggent_filters.stop_words)} стоп-слов, min_score={eggent_filters.min_score}, "
+            f"источников с тегом eggent-niche: {len(niche_handles)})"
         )
         return
 

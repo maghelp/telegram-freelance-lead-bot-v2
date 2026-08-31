@@ -4,104 +4,272 @@
     "title": "Хабр Фриланс",
     "reason": "заказы по фрилансу и разработке",
     "enabled": true,
-    "tags": ["freelance", "development", "russian"]
+    "tags": [
+      "freelance",
+      "development",
+      "russian"
+    ]
   },
   {
     "handle": "@apibot_tg",
     "title": "BotAPI [Фриланс]",
     "reason": "узкая подборка заказов на Telegram-ботов; проверить username перед включением",
     "enabled": false,
-    "tags": ["telegram", "bots", "unverified"]
+    "tags": [
+      "telegram",
+      "bots",
+      "unverified"
+    ]
   },
   {
     "handle": "@digitaltender",
     "title": "DIGITAL Tender",
     "reason": "digital-заказы и разработка",
     "enabled": true,
-    "tags": ["digital", "development", "russian"]
+    "tags": [
+      "digital",
+      "development",
+      "russian"
+    ]
   },
   {
     "handle": "@freelancetaverna",
     "title": "Фриланс Таверна",
     "reason": "удаленные задачи и заказы для разработчиков",
     "enabled": true,
-    "tags": ["freelance", "development", "russian"]
+    "tags": [
+      "freelance",
+      "development",
+      "russian"
+    ]
   },
   {
     "handle": "@frilans",
     "title": "Фриланс | Удаленная работа",
     "reason": "широкий фриланс-канал; шум режется фильтром",
     "enabled": true,
-    "tags": ["freelance", "general", "russian"]
+    "tags": [
+      "freelance",
+      "general",
+      "russian"
+    ]
   },
   {
     "handle": "@job_developer",
     "title": "Фриланс для разработчиков",
     "reason": "разработка и проектная удаленная работа",
     "enabled": true,
-    "tags": ["development", "freelance", "russian"]
+    "tags": [
+      "development",
+      "freelance",
+      "russian"
+    ]
   },
   {
     "handle": "@search_techspec",
     "title": "Ищу Техспец",
     "reason": "заказы для технических специалистов",
     "enabled": true,
-    "tags": ["technical", "freelance", "russian"]
+    "tags": [
+      "technical",
+      "freelance",
+      "russian"
+    ]
   },
   {
     "handle": "@search_zakaz",
     "title": "Ищу Заказы",
     "reason": "агрегатор проектных заказов",
     "enabled": true,
-    "tags": ["freelance", "general", "russian"]
+    "tags": [
+      "freelance",
+      "general",
+      "russian"
+    ]
   },
   {
     "handle": "@FreeVacanciesIT",
     "title": "IT Фриланс | Вакансии",
     "reason": "IT-разовые и проектные задачи",
     "enabled": true,
-    "tags": ["it", "freelance", "russian"]
+    "tags": [
+      "it",
+      "freelance",
+      "russian"
+    ]
   },
   {
     "handle": "@freelance_dev_work",
     "title": "Kwork разработка и IT",
     "reason": "заказы по разработке и IT",
     "enabled": true,
-    "tags": ["development", "kwork", "russian"]
+    "tags": [
+      "development",
+      "kwork",
+      "russian"
+    ]
   },
   {
     "handle": "@do_it_order",
     "title": "Do IT - фриланс заказы",
     "reason": "агрегатор заказов по программированию; проверить username перед включением",
     "enabled": false,
-    "tags": ["development", "freelance", "unverified"]
+    "tags": [
+      "development",
+      "freelance",
+      "unverified"
+    ]
   },
   {
     "handle": "@pixeltechspec",
     "title": "Pixel | Заказы для Тех-спецов",
     "reason": "проектные заказы для технических специалистов",
     "enabled": true,
-    "tags": ["technical", "freelance", "russian"]
+    "tags": [
+      "technical",
+      "freelance",
+      "russian"
+    ]
   },
   {
     "handle": "@webfrl",
     "title": "Web Freelance",
     "reason": "web/fullstack-задачи, иногда боты и API",
     "enabled": true,
-    "tags": ["web", "fullstack", "freelance"]
+    "tags": [
+      "web",
+      "fullstack",
+      "freelance"
+    ]
   },
   {
     "handle": "@workayte",
     "title": "Работа в ИТ",
     "reason": "IT-вакансии и проектные задачи",
     "enabled": true,
-    "tags": ["it", "freelance", "russian"]
+    "tags": [
+      "it",
+      "freelance",
+      "russian"
+    ]
   },
   {
     "handle": "@FreelancehuntProjects",
     "title": "Freelancehunt Projects",
     "reason": "лента проектов с биржи Freelancehunt",
     "enabled": true,
-    "tags": ["freelancehunt", "development", "multilingual"]
+    "tags": [
+      "freelancehunt",
+      "development",
+      "multilingual"
+    ]
+  },
+  {
+    "handle": "@wildberriesozon_chats",
+    "title": "Wildberries&Ozon | Чат Селлеров",
+    "reason": "eggent-ниша Marketplace Finance — сигналы от владельцев магазинов на WB/Ozon; 66K участников, не верифицирован живым сканом — ОТКЛЮЧЕН 27.08: скам-вакансии/капча-шум, 0 лидов из 190 проверенных сообщений",
+    "enabled": false,
+    "tags": [
+      "marketplace",
+      "wb-ozon",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@irepetitor_pupils",
+    "title": "ЯРепетитор. Поиск учеников",
+    "reason": "eggent-ниша образование — поток структурированных заявок на репетиторов, живой сигнал спроса — ОТКЛЮЧЕН 28.08: эксперимент с пассивным мониторингом eggent-ниш закрыт, переходим на Comandos AI",
+    "enabled": false,
+    "tags": [
+      "education",
+      "tutoring",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@poisk_uchenikov",
+    "title": "Ищу репетитора / Заявки для репетитора",
+    "reason": "eggent-ниша образование — родительские заявки на репетиторов, дублирует irepetitor_pupils для охвата — ОТКЛЮЧЕН 27.08: скам-вакансии/капча-шум, 0 лидов из 190 проверенных сообщений",
+    "enabled": false,
+    "tags": [
+      "education",
+      "tutoring",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@tutorsPRO",
+    "title": "Заявки для репетиторов | TutorsPRO",
+    "reason": "eggent-ниша образование — ещё один поток заявок на репетиторов, 3500+ подписчиков, добавлен по запросу пользователя — ОТКЛЮЧЕН 28.08: эксперимент с пассивным мониторингом eggent-ниш закрыт, переходим на Comandos AI",
+    "enabled": false,
+    "tags": [
+      "education",
+      "tutoring",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@unitmarketing1",
+    "title": "Владельцы салонов красоты | Бьюти бизнес",
+    "reason": "eggent-ниша красота — чат именно владельцев (не мастеров-исполнителей), не верифицирован живым сканом — ОТКЛЮЧЕН 27.08: скам-вакансии/капча-шум, 0 лидов из 190 проверенных сообщений",
+    "enabled": false,
+    "tags": [
+      "beauty",
+      "business-owners",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@hr_recr",
+    "title": "Чат HR-специалистов | заказчики и исполнители",
+    "reason": "eggent-ниша HR — самый слабый из пяти кандидатов, сигнал непрямой (заказы на подбор, не на AI-ботов); держать под наблюдением — ОТКЛЮЧЕН 27.08: скам-вакансии/капча-шум, 0 лидов из 190 проверенных сообщений",
+    "enabled": false,
+    "tags": [
+      "hr",
+      "recruiting",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@beauty_boss_chat",
+    "title": "ЧАТ BEAUTY РУКОВОДИТЕЛЕЙ | Владельцы бьюти салонов красоты",
+    "reason": "eggent-ниша красота — замена unitmarketing1: явный бан клиентам на вход, активная антиспам-модерация, обсуждают CRM/подбор администраторов — ОТКЛЮЧЕН 28.08: эксперимент с пассивным мониторингом eggent-ниш закрыт, переходим на Comandos AI",
+    "enabled": false,
+    "tags": [
+      "beauty",
+      "business-owners",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@sellers_chat",
+    "title": "Чат продавцов WB / Ozon / Wildberries / Wildberries / Маркетплейсы",
+    "reason": "eggent-ниша Marketplace Finance — замена wildberriesozon_chats: при поддержке mpexperts, в описании прямо чистят рекламу/спам — ОТКЛЮЧЕН 28.08: эксперимент с пассивным мониторингом eggent-ниш закрыт, переходим на Comandos AI",
+    "enabled": false,
+    "tags": [
+      "marketplace",
+      "wb-ozon",
+      "eggent-niche",
+      "russian"
+    ]
+  },
+  {
+    "handle": "@hrgid_biz",
+    "title": "Екатерина Хватина — HR для собственников малого и среднего бизнеса",
+    "reason": "eggent-ниша HR — замена hr_recr: небольшой (261 подписчик), но именно канал для владельцев бизнеса, не чат рекрутеров/вакансий — ОТКЛЮЧЕН 28.08: эксперимент с пассивным мониторингом eggent-ниш закрыт, переходим на Comandos AI",
+    "enabled": false,
+    "tags": [
+      "hr",
+      "business-owners",
+      "eggent-niche",
+      "russian"
+    ]
   }
 ]
