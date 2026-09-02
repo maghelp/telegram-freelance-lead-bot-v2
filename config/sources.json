@@ -154,17 +154,6 @@
     ]
   },
   {
-    "handle": "@FreelancehuntProjects",
-    "title": "Freelancehunt Projects",
-    "reason": "лента проектов с биржи Freelancehunt",
-    "enabled": true,
-    "tags": [
-      "freelancehunt",
-      "development",
-      "multilingual"
-    ]
-  },
-  {
     "handle": "@wildberriesozon_chats",
     "title": "Wildberries&Ozon | Чат Селлеров",
     "reason": "eggent-ниша Marketplace Finance — сигналы от владельцев магазинов на WB/Ozon; 66K участников, не верифицирован живым сканом — ОТКЛЮЧЕН 27.08: скам-вакансии/капча-шум, 0 лидов из 190 проверенных сообщений",
